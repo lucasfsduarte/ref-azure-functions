@@ -1,0 +1,53 @@
+"Representa um usuário"
+type User {
+  "Identificador único do usuário"
+  id: Int!
+  "Nome completo"
+  name: String!
+  "Endereço de email"
+  email: EmailAddress!
+  "Idade em anos"
+  age: Int
+}
+
+"Parâmetros de entrada para o cadastro de um usuário"
+input CreateUserInput {
+  "Primeiro nome"
+  firstName: String!
+  "Sobrenome"
+  lastName: String!
+  "Endereço de email"
+  email: EmailAddress!
+  "Data de Nascimento"
+  birthDate: Date
+}
+
+"Parâmetros para a atualização de um usuário"
+input UpdateUserInput {
+  "Identificador do usuário a ser atualizado"
+  id: Int!
+  "Primeiro nome"
+  firstName: String
+  "Sobrenome"
+  lastName: String
+  "Endereço de email"
+  email: EmailAddress
+  "Data de Nascimento"
+  birthDate: Date
+}
+
+type Query {
+  "Recupera todos os usuários"
+  users: [User]!
+  "Recupera um usuário por seu ID"
+  user(id: Int!): User
+}
+
+type Mutation {
+  "Cria um usuário"
+  createUser(createUserInput: CreateUserInput!): User!
+  "Atualiza um usuário"
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  "Remove um usuário"
+  removeUser(id: Int!): User
+}

@@ -1,0 +1,57 @@
+version: '3.8'
+
+networks:
+  sample:
+    driver: bridge
+
+volumes:
+  pgdata:
+  mongodata:
+
+services:
+  # Exemplo: usando mongo
+  # mongo:
+  #   networks:
+  #     - sample
+  #   container_name: sample-mongo
+  #   image: mongo
+  #   ports:
+  #     - 27017:27017
+  #   volumes:
+  #     - ./tmp/backups:/data/backups
+  #     - mongodata:/data/db
+
+  # Exemplo: usando postgres
+  # psql:
+  #   networks:
+  #     - sample
+  #   container_name: sample-psql
+  #   image: postgres:12.1
+  #   ports:
+  #     - 5432:5432
+  #   environment:
+  #     - POSTGRES_DB=sample
+  #     - POSTGRES_USER=sample
+  #     - POSTGRES_PASSWORD=sample
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+
+  api:
+    networks:
+      - sample
+    build:
+      context: .
+    image: sample-api
+    container_name: sample-api
+    command: yarn run start:dev
+    volumes:
+      - ./:/code
+      - ./node_modules:/code/node_modules
+    ports:
+      - 3000:3000
+    # links:
+      # - mongo
+      # - psql
+    # depends_on:
+      # - mongo
+      # - psql
