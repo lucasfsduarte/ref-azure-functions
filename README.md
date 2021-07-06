@@ -8,12 +8,12 @@ Este repositório armazena a estrutura básica para a execução de uma função
 
 ### Estrutura
 
-A função de exemplo foi desenvolvida em Typescript com um trigger HTTP padrão. Nesse contexto, o diretório `/function-example` armazena dois arquivos importantes: `function.json` e `index.ts`. O primeiro registra os parâmetros de configuração da função propriamente dita, como níveis de segurança, métodos HTTP disponíveis e o endereço do `index` correspondente. O segundo arquivo implementa o ponto de entrada da função, responsável por receber parâmetros de entrada e produzir a resposta que é enviada ao cliente.
+A função de exemplo foi desenvolvida em Typescript com um trigger HTTP padrão. Nesse contexto, o diretório `/function-example` armazena dois arquivos importantes: `function.json` e `index.ts`. O primeiro registra os parâmetros de configuração da função propriamente dita, como níveis de segurança, métodos HTTP disponíveis e o endereço do `index` correspondente. O segundo arquivo implementa o entrypoint da função, responsável por receber parâmetros de entrada e produzir a resposta que é enviada ao cliente.
 
 Arquivos extras como serviços, ferramentas de processamento de dados, métodos auxiliares, entre outros, deverão ser importados em última instância através desse arquivo.
 
 ### Docker
-Um Dockerfile está presente na raiz do projeto, assim como um docker-compose.yml com uma configuração mínima viável para a execução do projeto.
+Um Dockerfile está presente na raiz do projeto, assim como um docker-compose.yml com uma configuração mínima viável para a execução do exemplo.
 
 ### Execução
 Em uma máquina com **Docker** e **Docker Compose** instalados, basta executar
