@@ -8,7 +8,7 @@ Este repositório armazena a estrutura básica para a execução de uma função
 
 ### Estrutura
 
-A função de exemplo foi desenvolvida em Typescript com um trigger HTTP padrão. Nesse contexto, o diretório '/function-example' armazena dois arquivos importantes: 'function.json' e 'index.ts'. O primeiro registra os parâmetros de configuração da função propriamente dita, como níveis de segurança, métodos HTTP disponíveis e o endereço do 'index' correspondente. O segundo arquivo implementa o ponto de entrada da função, responsável por receber parâmetros de entrada e produzir a resposta que é enviada ao cliente.
+A função de exemplo foi desenvolvida em Typescript com um trigger HTTP padrão. Nesse contexto, o diretório `/function-example` armazena dois arquivos importantes: `function.json` e `index.ts`. O primeiro registra os parâmetros de configuração da função propriamente dita, como níveis de segurança, métodos HTTP disponíveis e o endereço do `index` correspondente. O segundo arquivo implementa o ponto de entrada da função, responsável por receber parâmetros de entrada e produzir a resposta que é enviada ao cliente.
 
 Arquivos extras como serviços, ferramentas de processamento de dados, métodos auxiliares, entre outros, deverão ser importados em última instância através desse arquivo.
 
@@ -20,16 +20,16 @@ Em uma máquina com **Docker** e **Docker Compose** instalados, basta executar
 ```
 docker-compose up serverless
 ```
-para iniciar a aplicação. Após isso, verifique o endereço local na porta '80' através de seu navegador. Se uma tela azul (não se preocupe, não é **aquela** tela azul) de boas-vindas aparecer, a inicialização ocorreu com sucesso.
+para iniciar a aplicação. Após isso, verifique o endereço local na porta `80` através de seu navegador. Se uma tela azul (não se preocupe, não é **aquela** tela azul) de boas-vindas aparecer, a inicialização ocorreu com sucesso.
 
 ### Testes
 
-É possível enviar requisições 'POST' ou 'GET' para o endpoint exposto. Em uma ferramenta de desenvolvimento como **Postman**, utilize:
+É possível enviar requisições `POST` ou `GET` para o endpoint exposto. Em uma ferramenta de desenvolvimento como **Postman**, utilize:
 ```
 Método: GET
 URL: http://localhost:80/api/function-example
 ```
-Para ver os resultados. É possível interagir com a função através do envio de parâmetros como 'name':
+Para ver os resultados. É possível interagir com a função através do envio de parâmetros como `name`:
 
 ```
 Método: GET
