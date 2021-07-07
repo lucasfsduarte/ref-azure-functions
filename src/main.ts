@@ -1,5 +1,4 @@
 import { ValidationPipe } from '@nestjs/common'
-import { ConfigService } from '@nestjs/config'
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
 
@@ -8,17 +7,15 @@ import { AppModule } from './app.module'
  * It also starts listening in the port configured
  */
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule)
-
-  // Fetches the port configuration variable in the `api` namespace
-  const configService = app.get<ConfigService>(ConfigService)
-  const port = configService.get('api.port')
+  const app = await NestFactory.create(AppModule) 
 
   // Configuration of the global validation pipeline
   app.useGlobalPipes(new ValidationPipe())
 
-  console.log(`Your application will run in port ${port}`)
-  await app.listen(port)
+  console.log('Your application is running! Well done!')
+  // Here we perform our data processing and return it to the serverless function handler
+  // const response = module.performAction(parameters)
+  // return response
 }
 
 bootstrap()

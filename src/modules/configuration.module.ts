@@ -7,12 +7,11 @@
 import { ConfigModule } from '@nestjs/config'
 
 // Importing the config variables settings for each namespace
-import apiConfig from '../config/api.config'
-import databaseConfig from '../config/database.config'
+import functionConfig from '../config/function.config'
 
 const ConfigurationModule = ConfigModule.forRoot({
-  load: [apiConfig, databaseConfig],
-  isGlobal: true,
+  load: [functionConfig],
+  isGlobal: true
 })
 
 export default ConfigurationModule
