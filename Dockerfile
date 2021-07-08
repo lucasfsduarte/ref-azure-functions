@@ -2,11 +2,15 @@
 # FROM mcr.microsoft.com/azure-functions/node:3.0-appservice
 FROM mcr.microsoft.com/azure-functions/node:3.0
 
-ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
+ENV AzureWebJobsScriptRoot=/code \
     AzureFunctionsJobHost__Logging__Console__IsEnabled=true
 
-COPY . /home/site/wwwroot
+COPY . /code
 
-RUN cd /home/site/wwwroot && \
+WORKDIR /code
+
+RUN npm install -g @nestjs/cli
+
+RUN cd /code && \
     npm install && \
     npm run build

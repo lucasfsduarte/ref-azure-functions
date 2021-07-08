@@ -4,5 +4,7 @@ services:
   serverless:
     build:
       context: .
+    image: serverless-image
+    container_name: serverless
     ports:
       - 80:80
